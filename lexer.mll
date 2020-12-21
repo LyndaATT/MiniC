@@ -4,71 +4,7 @@
   open Printf
   exception Eof
   exception Lexing_error of string
-  (* type lexeme =
-      | CST of int
-      | IDENT of string
-      | SCOLON
-      | DOT
-      | LPAREN
-      | RPAREN
-      | APOS
-      | COMMA
-      | EQUAL
-      | LESS
-      | LEQ
-      | GREATER
-      | GEQ
-      | PLUS
-      | MINUS
-      | MUL
-      | DIV
-      | MOD
-      | XOR_CHR
-      | EQQ
-      | NET
-      | NOT
-      | QST
-      | OR
-      | LBRACE
-      | RBRACE
-      | ADD_ASSIGN
-      | SUB_ASSIGN
-      | MUL_ASSIGN
-      | DIV_ASSIGN
-      | MOD_ASSIGN
-      | AND_ASSIGN
-      | XOR_ASSIGN
-      | OR_ASSIGN
-      | AND
-      | ELSE
-      | ELSEIF
-      | FALSE
-      | FOR
-      | IF
-      | NULL
-      | VOID
-      | RETURN
-      | TRUE
-      | WHILE
-      | PUTCHAR
-      | MAIN
-      | VAR
-      | PRINT
-      | NEQ
-      | INT *)
-  (* let keywords = [
-        (* "int", INT;
-        "bool", BOOL;
-        "void", VOID;
-        "if", IF; *)
-        "else", ELSE;
-        (* "return", RETURN; *)
-        (* "while", WHILE; *)
-        (* "putchar", PUTCHAR; *)
-        (* "main", MAIN; *)
-        (* "var",  VAR; *)
-
-    ] *)
+  
   let keyword_or_ident =
     let h = Hashtbl.create 17 in
     List.iter
@@ -80,7 +16,7 @@
         "bool", BOOL;
         "else", ELSE;
         "if",   IF;
-        "print",PRINT;
+        "for",FOR;
         "putchar", PUTCHAR;
         "while", WHILE;
       ] ;
@@ -88,31 +24,8 @@
       try  Hashtbl.find h s
       with Not_found -> IDENT(s)
 
-  (* let id_or_kwd s =  try List.assoc s keywords with _ -> IDENT(s) *)
-
-
-  (* let rec token_to_string s =
-    match s with
-    |CST(i) -> Printf.printf "%d" i
-    |SCOLON -> Printf.printf ";"
-    |LPAREN -> Printf.printf "("
-    |RPAREN -> Printf.printf ")"
-    |LBRACE -> Printf.printf "{"
-    |RBRACE -> Printf.printf "}"
-    |PLUS -> Printf.printf "+"
-    |MUL -> Printf.printf "*"
-    |AND -> Printf.printf "&&"
-    |LESS -> Printf.printf "<"
-    |EQUAL -> Printf.printf "="
-    |COMMA -> Printf.printf ","
-    |IDENT(s) -> Printf.printf "%s" s
-    |IF -> Printf.printf "if"
-    |ELSE -> Printf.printf "else"
-    |INT -> Printf.printf "intt" *)
-
 }
-
-let digit = ['0'-'9']
+let digit = ('-' | "") ['0'-'9']
 let alpha = ['a'-'z' 'A'-'Z']
 let ident = alpha (digit | alpha | "_")*
 let space = [' ' '\t']
@@ -132,10 +45,24 @@ rule token = parse
     | '=' { EQUAL }
     | '<' { LT }
     | '+'  { PLUS }
+    | '-'  { MINUS }
     | '*'  { MUL }
     | '{'  { LBRACE }
     | '}'  { RBRACE }
+    | '!'  {NOT}
+    | '/' { DIV }
+    | '%' { MOD }
+    | '>' { GT }
+    | "==" { DOUBLE_EQ }
+    | "<=" { LE }
+    | ">=" { GE }
+    | '&' { BIT_AND }
+    | '|' { BIT_OR }
+    | "!=" { NEQ }
     | "&&" { AND }
+    | "||" { OR }  
+    | "<<" { SHIFT_LEFT }
+    | ">>" { SHIFT_RIGHT } 
     | _ as s { raise (Lexing_error (Printf.sprintf "Caractère inconnu : %C\n" s)) }
     | eof { FIN }
 

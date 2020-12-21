@@ -9,7 +9,7 @@ ocamlc ast.ml parser.mli parser.ml lexer.ml main.ml
 open Aff
 
 let _ =
-  let fichier = "test.c" in
+  let fichier = Sys.argv.(1) in
   let c = open_in fichier in
   let lexbuf = Lexing.from_channel c in
   let prog = Parser.prog Lexer.token lexbuf in

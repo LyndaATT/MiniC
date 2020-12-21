@@ -1,4 +1,5 @@
 int n = 3;
+---
 putchar(n);
 if(n>4){
 	n = n +1;

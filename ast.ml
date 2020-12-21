@@ -12,6 +12,22 @@ type expr =
   | Lt   of expr * expr
   | Get  of string 
   | Call of string * expr list
+  | Div of expr* expr
+  | Mod of expr* expr
+  | Eqq of expr* expr
+  | Gt of expr* expr 
+  | NEq of expr* expr
+  | And of expr* expr
+  | Or of expr* expr
+  | BitAnd of expr* expr
+  | BitOr of expr* expr
+  | Not of expr
+  | Neg of expr 
+  | Le of expr* expr
+  | Ge of expr* expr
+  | ShiftL of expr* expr
+  | ShiftR of expr* expr
+  | Eq of expr* expr
  
 
 
@@ -22,6 +38,8 @@ type instr =
   | While   of expr* seq 
   | Return  of expr
   | Expr    of expr
+  | For of (string * typ)* expr* expr* seq 
+        
 and seq = instr list
 
 type fun_def = {
