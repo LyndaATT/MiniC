@@ -11,16 +11,16 @@
 
  ## 1) Analyseur Lexical : 
  (fichier lexel.mll)
-Afin de réduire le nombre d’états de l’automate, un seul cas a été utilisé pour les identifieurs. Les mots clés sont enregistrés dans un hashmap de couples d’identifieur et de lexeme. Cependant, des cas spécifiques ont été ajoutés pour certaines suites de caractères (.. ou := par exemple) qui ne peuvent comprendre de blancs entre les caractères. Nous avons inssister sur les erreurs pouvant parvenir en précisant le caractère qui la déclenche.
+Afin de réduire le nombre d’états de l’automate, un seul cas a été utilisé pour les identifieurs. Les mots clés sont enregistrés dans un hashmap de couples d’identifieur et de lexeme. Cependant, des cas spécifiques ont été ajouté pour certaines suites de caractères (.. ou := par exemple) qui ne peuvent comprendre de blancs entre les caractères. Nous avons insister sur les erreurs pouvant parvenir en précisant le caractère qui la déclenche.
 
 ## 2) Analyseur syntaxique : 
  (fichier parser.mly)
 Dans le but de localiser les erreurs possibles, les déclarations de variables, fonctions, instructions ainsi que les différentes expressions sont décritent avec deux champs, un champs correspondant à la description de la structure ainsi que d'un champs pour la position qu'on peut récuperer à l'aide de ($startpos, $endpos)). 
-Nous avons utilisé aussi, plusieurs fonctions de menhir : +,-,&,.. ainsi que list,separated_nonemty_list,... Nous avons fait en sorte aussi d'afficher l'erreur parvenu lors de l'analyse en indiquant essentiellement, la position du lexeme la déclenchant.
+Nous avons utilisé aussi, plusieurs fonctions de menhir : +,-,&,.. ainsi que list,separated_nonemty_list,... Nous avons fait en sorte aussi d'afficher l'erreur parvenue lors de l'analyse en indiquant essentiellement, la position du lexeme la déclenchant.
 
 ## 3) Vérificateur de type : 
  (fichier parser.mly)
-Dans cette partie, nous allons nous concentrer sur les éventuelles erreurs de 'typage' qui peuvent survenir. Tout comme l'addition ou la multiplication de deux objets dont le type diffère ne peut fonctionner, un appel à une fonction avec de mauvais paramètres ou un résultat retourné par une fonction d'un type différant du type de cette dernière risque d'interrompre l'éxécution de notre programme. Ainsi, notre but ici est d'avoir un suivi des instructions et des expressions dans les moindres détails, en arrêtant volontairement le programme en cours en cas d'une erreur de typage tout en affichant un petit message explicatif pour aider l'utilisateur à mieux comprendre l'erreur et donc, à la corriger. Pour ce faire, nous avons utilisé 4 HashTable : (plus de détails, voir les commentaires dans le fichier parser.mly)
+Dans cette partie, nous allons nous concentrer sur les éventuelles erreurs de 'typage' qui peuvent survenir. Tout comme l'addition ou la multiplication de deux objets dont les types diffèrent ne peut fonctionner, un appel à une fonction avec de mauvais paramètres ou un résultat retourné par une fonction d'un type différant du type de cette dernière risque d'interrompre l'éxécution de notre programme. Ainsi, notre but ici est d'avoir un suivi des instructions et des expressions dans les moindres détails, en arrêtant volontairement le programme en cours en cas d'une erreur de typage tout en affichant un petit message explicatif pour aider l'utilisateur à mieux comprendre l'erreur et donc, à la corriger. Pour ce faire, nous avons utilisé 4 HashTable : (plus de détails, voir les commentaires dans le fichier parser.mly)
 
 * **var_glob** : un contiendra qui les variables globales,
 * **functionsNameType** : qui sauvegardera le nom de toutes les fonctions déclarées ainsi que leurs types de retour.
