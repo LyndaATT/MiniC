@@ -39,3 +39,6 @@ et celà en ajoutant à notre AST les expressions contenant ces differents opér
 
 * L'affichage : nous avons réalisé un affichage console qui nous permets de visualisé le résultat dans notre analyse pour chaque programme donné en entrée.	    
 
+
+## 5) Tests : 
+Pour vérifier le bon fonctionnement de notre analyseur lexical, syntaxique et le vérificateur de type, nous avons mis en place différents tests qui relèvent plusieurs subtilités du langage; des tests qui sont bons et d'autres qui déclenchent des erreurs, vous pouvez les retrouver les deux dossiers : goodTest et badTests
