@@ -22,6 +22,7 @@ let rec afficher_fn fn =
       Printf.printf "\tType : %s\n" (afficher_type x.return);
       Printf.printf "\tNom : %s\n" x.name;
       Printf.printf "\tLes params : ["; afficher_gl x.params ; Printf.printf "]\n";
+      Printf.printf "\tLes variables locales: ["; afficher_gl x.locals ; Printf.printf "]\n";
     end
 
 let afficher prog =

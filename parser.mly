@@ -14,8 +14,10 @@
 %start prog
 %type <Ast.prog> prog
 
+%left LT
 %left PLUS
 %left MUL
+%right COMMA
 %right SCOLON
 
 %%
