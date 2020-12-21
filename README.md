@@ -30,11 +30,11 @@ Concernant les extensions que nous avons réalisés nous avons :
 * Des opérateurs binaires et unaires : 
 	- opérateurs unaires : l'opposé d'un entier ainsi que la négation d'un booléen.
 	- opérateurs binaires : 
-	    **arithmétique : division(/), modulo(%)
-	    **comparaisons : égalité(==,=) , inégalité (<,>,<=,>=)
-	    **logique : le ou (||) ainsi que le et &&
-	    **bit à bit : le ou (|) ainsi que le et &
-	    **décalage : <<,>>
+	    - arithmétique : division(/), modulo(%)
+	    - comparaisons : égalité(==,=) , inégalité (<,>,<=,>=)
+	    - logique : le ou (||) ainsi que le et &&
+	    - bit à bit : le ou (|) ainsi que le et &
+	    - décalage : <<,>>
 et celà en ajoutant à notre AST les expressions contenant ces differents opérateurs, par exemple pour la négation d'un bool : Neg(expr)
 
 * L'affichage : nous avons réalisé un affichage console qui nous permets de visualisé le résultat dans notre analyse pour chaque programme donné en entrée.	    
