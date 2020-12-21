@@ -6,8 +6,8 @@
 	                    ou bien en effectuant cette suite de commandes :  ocamllex lexer.mll
 						      	                      menhir -v parser.mly 
 									      ocamlc ast.ml parser.mli parser.ml lexer.ml aff.ml main.ml
-	Pour l'execution du projet : si vous utilisez la 1ere option de compilation alors saisissez : ./main.native fileTest.c
-	                             si vous utilisez la 2eme option de compilation alors saisissez : ./a.out fileTest.c
+	Pour l'execution du projet : si vous utilisez la 1ère option de compilation alors saisissez : ./main.native fileTest.c
+	                             si vous utilisez la 2ème option de compilation alors saisissez : ./a.out fileTest.c
 
  ## 1) Analyseur Lexical : 
  (fichier lexel.mll)
