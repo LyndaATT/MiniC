@@ -15,7 +15,7 @@ Afin de réduire le nombre d’états de l’automate, un seul cas a été utili
 
 ## 2) Analyseur syntaxique : 
  (fichier parser.mly)
-Dans le but de loclaiser les erreurs possibles, les déclarations de variables, fonctions, instructions ainsi que les différentes expressions sont décritent avec deux champs, un champs correspondant à la description de la structure ainsi que d'un champs pour la position qu'on peut récuperer à l'aide de ($startpos, $endpos)). 
+Dans le but de localiser les erreurs possibles, les déclarations de variables, fonctions, instructions ainsi que les différentes expressions sont décritent avec deux champs, un champs correspondant à la description de la structure ainsi que d'un champs pour la position qu'on peut récuperer à l'aide de ($startpos, $endpos)). 
 Nous avons utilisé aussi, plusieurs fonctions de menhir : +,-,&,.. ainsi que list,separated_nonemty_list,... Nous avons fait en sorte aussi d'afficher l'erreur parvenu lors de l'analyse en indiquant essentiellement, la position du lexeme la déclenchant.
 
 ## 3) Vérificateur de type : 
