@@ -1,5 +1,5 @@
 # MiniC Compiler
-
+Par : Lynda Attouche & Yacine Mokhtari
         Nous avons réalisé un analyseur lexical (lexer.ml), un analyseur syntaxique (parser.mly) ainsi qu'un vérificateur de types qui 
 	traitent tous les types de programmes donnée par la syntaxe du sujet.
 	Pour la compilation du projet veuillez saisir la commande suivante :  ocamlbuild -use-menhir -no-hygiene main.native 
